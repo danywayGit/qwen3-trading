@@ -87,8 +87,6 @@ class AnalysisPipeline:
             periods=min(periods, len(df))
         )
         
-        logger.info("Quantitative analysis complete")
-        
         # Step 3: Visual analysis with quant context
         logger.info("Step 3: Running visual chart analysis...")
         visual_result = self.visual_analyzer.analyze(
@@ -97,8 +95,6 @@ class AnalysisPipeline:
             timeframe=timeframe,
             quant_context=quant_result['analysis']
         )
-        
-        logger.info("Visual analysis complete")
         
         # Step 4: Integrate results
         logger.info("Step 4: Integrating results...")
