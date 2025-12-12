@@ -1,0 +1,82 @@
+{
+  "models": {
+    "quantitative": {
+      "name": "qwen3-coder-30b-ctx32k-quant:latest",
+      "description": "Quantitative data analysis model",
+      "temperature": 0.1,
+      "top_p": 0.95,
+      "max_tokens": 2000
+    },
+    "visual": {
+      "name": "qwen3-vl-8b-ctx32k-trading:latest",
+      "description": "Visual chart analysis model",
+      "temperature": 0.2,
+      "top_p": 0.9,
+      "top_k": 40,
+      "max_tokens": 3000
+    }
+  },
+  "exchanges": {
+    "default": "binance",
+    "available": [
+      "binance",
+      "coinbase",
+      "kraken",
+      "bybit"
+    ],
+    "ccxt_config": {
+      "enableRateLimit": true,
+      "timeout": 30000,
+      "verbose": false
+    }
+  },
+  "data_sources": {
+    "ccxt_enabled": true,
+    "csv_enabled": true,
+    "csv_folder": "data/csv_imports/",
+    "ccxt_cache_folder": "data/ccxt/",
+    "default_periods": 200,
+    "default_timeframe": "4h"
+  },
+  "analysis": {
+    "data_periods": 100,
+    "timeframes": [
+      "1h",
+      "4h",
+      "1d"
+    ],
+    "output_format": "json",
+    "save_intermediate": true,
+    "min_confidence": 5,
+    "divergence_threshold": 0.3
+  },
+  "charts": {
+    "manual_folder": "charts/manual/",
+    "generated_folder": "charts/generated/",
+    "auto_generate": false,
+    "required_indicators": [
+      "RSI",
+      "MACD",
+      "Volume",
+      "EMA"
+    ],
+    "default_resolution": "1920x1080"
+  },
+  "results": {
+    "json_folder": "results/json/",
+    "reports_folder": "results/reports/",
+    "archive_days": 30,
+    "include_metadata": true
+  },
+  "ollama": {
+    "base_url": "http://localhost:11434",
+    "timeout": 120,
+    "retry_attempts": 3,
+    "retry_delay": 2
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "qwen3_trading.log"
+  }
+}

@@ -1,0 +1,13 @@
+# Sample Symbols for Batch Analysis
+
+# Major cryptocurrencies
+BTC/USDT
+ETH/USDT
+SOL/USDT
+
+# Popular altcoins
+BNB/USDT
+XRP/USDT
+ADA/USDT
+
+# Add your symbols here (one per line)
